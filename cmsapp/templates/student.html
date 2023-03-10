@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% block content %}
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+    <!-- Brand -->
+   
+
+    <!-- Toggler/collapsibe Button -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <!-- Navbar links -->
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+      <ul class="navbar-nav">
+        
+        
+
+       
+      </ul>
+      </div>
+      </nav>
+<center>
+    <h3 class="alert alert-success text-center mt-3 w-60">
+        STUDENT TABLE
+    </h3>
+   
+    <table class="table table-dark table-hover text-center mt-3 w-60">
+        <thead>
+            <tr>
+                <th>STUDENT NAME</th>
+                <th>PHONE NUMBER</th>
+                <th>GENDER</th>
+                <th>ADDRESS</th>
+                <th>JOINING DATE</th>
+                <th>COURSE NAME</th>
+               
+            </tr>
+        </thead>
+        <tbody>
+            {% for s in std %}
+            <tr>
+                <td>{{ s.Student_Name }}</td>  
+                <td>{{ s.Phone_Number }}</td>
+                <td>{{ s.Gender }}</td>
+                <td>{{ s.Address }}</td>
+                <td>{{ s.Join_Date }}</td>  
+                <td>{{ s.Course_Name.Course_Name }}&nbsp;<a href="{% url 'deletepages' s.id  %}">Remove</a>
+                    <br> </td> 
+                   
+                
+                
+            </tr>
+            {% endfor %}
+
+        </tbody> 
+    </table>
+
+<br> <a style="color:black" href="{% url 'admin_home' %}"><b>ADD MORE+</b> </a><br> <br> 
+
+<a style="color: black" href="{% url 'admin_home' %}"><b>BACK</b> </a>
+
+</center>
+{% endblock %}
